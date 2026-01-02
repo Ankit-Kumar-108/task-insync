@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "material-symbols";
 import "./globals.css";
+import { Toaster } from "react-hot-toast";
+import NextTopLoader from 'nextjs-toploader'; // <--- 1. Import TopLoader
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -28,7 +30,26 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        {/* 2. Add the Loader here with your Blue color */}
+        <NextTopLoader
+          color="#2b8cee"
+          initialPosition={0.08}
+          crawlSpeed={200}
+          height={3}
+          crawl={true}
+          showSpinner={true} 
+          easing="ease"
+          speed={200}
+          shadow="0 0 10px #2299DD,0 0 5px #2299DD"
+        />
+
+        <Toaster/>
+        
         {children}
+
+        {/* 3. Don't forget this! Your Edit Modal needs this to land on */}
+        <div id="modal-root"></div>
+
       </body>
     </html>
   );
