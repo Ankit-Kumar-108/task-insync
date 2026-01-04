@@ -2,6 +2,7 @@
 import { auth } from "../../models/OAuth/auth"
 import { db } from "../../models/DB/db"
 import { revalidatePath } from "next/cache"
+import { sendTaskNotification } from "@/helpers/emails/TaskEmail"
 
 export default async function CreateTask(formData:FormData) {
     // checks if user is logged in or not 
@@ -23,9 +24,10 @@ export default async function CreateTask(formData:FormData) {
             description: "",
             deadline: deadLineDate,
             userId: session.user.id,
-            isCompleted: false
+            isCompleted: false,
         },
     })
+    sendTaskNotification(title, deadLineString)
     revalidatePath(path || "/")
     return{error: "error creating task"}
 }

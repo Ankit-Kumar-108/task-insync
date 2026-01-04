@@ -160,7 +160,7 @@ export default async function MiddleSection({ title }: MiddleSection) {
 
             ) : (
                 // Login Prompt
-                <div className="text-center space-y-4">
+                <div className="text-center space-y-4 flex justify-center items-center">
                     <p className="text-gray-400 text-lg">Choose Account to Login</p>
                     <form action={async () => { "use server"; await signIn("github") }}>
                         <button className="px-8 py-3 bg-white text-black font-bold rounded-full hover:bg-gray-200 transition flex items-center gap-3 text-lg">

@@ -28,6 +28,7 @@ model Task {
   createdAt    DateTime @default(now())
   priority     String   @default("Low")
   userId       String   @db.ObjectId
+  isSent       Boolean  @default(false)
   user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 

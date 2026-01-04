@@ -4,7 +4,7 @@ export default async function NavBar() {
     const session = await auth()
 
     return(
-        <nav className="w-full h-16 bg-[#ffffff] dark:bg-[#1c2127] border border-white/20 flex justify-between items-center pl-4 pr-4 fixed" style={{zIndex: "1"}}>
+        <nav className="w-full h-16 bg-[#ffffff] dark:bg-[#1c2127] border border-white/20 flex justify-between items-center pl-4 pr-4 fixed z-50 " style={{zIndex: "1"}}>
 
         <div className="flex justify-center items-center gap-4">
 
@@ -13,7 +13,7 @@ export default async function NavBar() {
 
           <form action="" className="group ml-4">
             <div className="w-64 h-9 rounded-lg bg-slate-100/10 flex justify-start pl-4 items-center group-focus-within:ring-blue-500 group-focus-within:ring-2 gap-2.5">
-              <span className="material-symbols-outlined opacity-50" style={{ fontSize: "20px" }}>search</span>
+              <span className="material-symbols-outlined opacity-50 text-[20px]" style={{ fontSize: "20px" }}>search</span>
               <input type="text" placeholder="Search Tasks" className="ring-none outline-none border-none text-[14px]" />
             </div>
           </form>
