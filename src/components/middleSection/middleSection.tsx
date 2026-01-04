@@ -6,7 +6,6 @@ import calculateTimeLeft from "@/helpers/countdown/countDown";
 import { taskStat } from "@/helpers/taskStatus/taskStatus";
 import EditTaskModal from "../editTask/updateTask";
 import DeleteTask from "../deleteTask/deletetask";
-import { Toaster } from "react-hot-toast";
 
 interface MiddleSection {
     title: string
@@ -22,7 +21,7 @@ export default async function MiddleSection({ title }: MiddleSection) {
     const date = (`${Day} ${Today}`);
 
     return (
-        <main className="flex flex-1 flex-col overflow-y-auto bg-[#f6f7f8] dark:bg-[#101922] p-4 sm:p-8 mt-20" style={{marginLeft: "260px"}}>
+        <main className="flex flex-1 flex-col overflow-y-auto bg-[#f6f7f8] dark:bg-[#101922] p-4 sm:p-8 mt-20 mr-95" style={{marginLeft: "260px"}}>
 
             {session && session.user ? (
 
@@ -160,7 +159,7 @@ export default async function MiddleSection({ title }: MiddleSection) {
 
             ) : (
                 // Login Prompt
-                <div className="text-center space-y-4 flex justify-center items-center">
+                <div className="text-center space-y-4 flex justify-center items-center flex-col">
                     <p className="text-gray-400 text-lg">Choose Account to Login</p>
                     <form action={async () => { "use server"; await signIn("github") }}>
                         <button className="px-8 py-3 bg-white text-black font-bold rounded-full hover:bg-gray-200 transition flex items-center gap-3 text-lg">

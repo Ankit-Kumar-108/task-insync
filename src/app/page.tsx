@@ -1,4 +1,5 @@
 import LeftSideBar from "@/components/SideBars/leftSideBar";
+import ClockCalendar from "@/components/SideBars/rightSideBar";
 import MiddleSection from "@/components/middleSection/middleSection";
 import NavBar from "@/components/navbar/navbar";
 
@@ -17,9 +18,9 @@ export default async function Home() {
 
         <MiddleSection title="Home"/>
 
-        <div className="w-80 bg-[#ffffff] dark:bg-[#1c2127] border-l border-white/20">
+        {/* right side */}
 
-        </div>
+        <ClockCalendar/>
 
       </main>
 
