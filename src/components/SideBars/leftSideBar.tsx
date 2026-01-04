@@ -17,7 +17,7 @@ export default async function LeftSideBar() {
             <span className="material-symbols-outlined font-[20px] " style={{ fontSize: "20px" }}>inbox</span>
             <span className="text-14">Inbox</span>
           </div>
-          <span className="opacity-50 group-hover:opacity-100 group-hover:bg-blue-500 duration-200 transition-all text-xs ml-auto">
+          <span className="opacity-50 group-hover:opacity-100 group-hover:text-blue-500 duration-200 transition-all text-xs ml-auto">
             {stat.overdue}
           </span>
         </Link>
@@ -28,7 +28,7 @@ export default async function LeftSideBar() {
             <span className="material-symbols-outlined text-[20px] " style={{ fontSize: "20px" }}>calendar_today</span>
             <span className="text-14">Today</span>
           </div>
-          <span className="opacity-50 group-hover:opacity-100 group-hover:bg-blue-500 duration-200 transition-all text-xs ml-auto">
+          <span className="opacity-50 group-hover:opacity-100 group-hover:text-blue-500 duration-200 transition-all text-xs ml-auto">
             {stat.today}
           </span>
         </Link>
@@ -39,7 +39,7 @@ export default async function LeftSideBar() {
             <span className="material-symbols-outlined text-[20px] " style={{ fontSize: "20px" }}>upcoming</span>
             <span className="text-14">Upcoming</span>
           </div>
-          <span className="opacity-50 group-hover:opacity-100 group-hover:bg-blue-500 duration-200 transition-all text-xs ml-auto">
+          <span className="opacity-50 group-hover:opacity-100 group-hover:text-blue-500 duration-200 transition-all text-xs ml-auto">
             {stat.upcoming}
           </span>
         </Link>
@@ -50,7 +50,7 @@ export default async function LeftSideBar() {
             <span className="material-symbols-outlined text-[20px] " style={{ fontSize: "20px" }}>check_box</span>
             <span className="text-14">Completed</span>
           </div>
-          <span className="opacity-50 group-hover:opacity-100 group-hover:bg-blue-500 duration-200 transition-all text-xs ml-auto">
+          <span className="opacity-50 group-hover:opacity-100 group-hover:text-blue-500 duration-200 transition-all text-xs ml-auto">
             {stat.completed}
           </span>
         </Link>

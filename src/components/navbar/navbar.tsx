@@ -4,7 +4,7 @@ export default async function NavBar() {
     const session = await auth()
 
     return(
-        <nav className="w-full h-16 bg-[#ffffff] dark:bg-[#1c2127] border border-white/20 flex justify-between items-center pl-4 pr-4 fixed z-50 " style={{zIndex: "1"}}>
+        <nav className="w-full h-16 bg-[#ffffff] dark:bg-[#1c2127] border border-white/20 flex justify-between items-center pl-4 pr-4 fixed z-50 " style={{zIndex: "50"}}>
 
         <div className="flex justify-center items-center gap-4">
 
