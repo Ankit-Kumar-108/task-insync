@@ -21,7 +21,7 @@ export default async function MiddleSection({ title }: MiddleSection) {
     const date = (`${Day} ${Today}`);
 
     return (
-        <main className="flex flex-1 flex-col overflow-y-auto bg-[#f6f7f8] dark:bg-[#101922] p-4 sm:p-8 mt-20 mr-95" style={{marginLeft: "260px"}}>
+        <main className="flex flex-1 flex-col overflow-y-auto bg-[#f6f7f8] dark:bg-[#101922] p-6 mt-20 lg:ml-65">
 
             {session && session.user ? (
 
@@ -81,11 +81,11 @@ export default async function MiddleSection({ title }: MiddleSection) {
                             tasks.map((task) => {
                                 // 2. Calculate time left for THIS specific task
                                 const timeLeft = calculateTimeLeft(task.deadline);
-
+                                const isOverdue = task.deadline && new Date(task.deadline) < new Date() && !task.isCompleted;
                                 return (
                                     <div
                                         key={task.id}
-                                        className="group flex flex-col sm:flex-row sm:items-center justify-between rounded-lg border border-[#e2e8f0] dark:border-[#283039] bg-white dark:bg-[#1c2127] p-4 shadow-sm hover:border-[#2b8cee]/50 transition-all cursor-pointer"
+                                        className={`group flex flex-col sm:flex-row sm:items-center justify-between rounded-lg border border-[#e2e8f0] dark:border-[#283039] bg-white dark:bg-[#1c2127] p-4 shadow-sm ${isOverdue?("hover:border-red-500/50 transition-all cursor-pointer"):("hover:border-[#2b8cee]/50 transition-all cursor-pointer")}`}
                                     >
                                         <div className="flex items-start gap-4">
 

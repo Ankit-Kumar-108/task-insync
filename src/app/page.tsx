@@ -1,7 +1,7 @@
 import LeftSideBar from "@/components/SideBars/leftSideBar";
-import ClockCalendar from "@/components/SideBars/rightSideBar";
 import MiddleSection from "@/components/middleSection/middleSection";
 import NavBar from "@/components/navbar/navbar";
+import RightSidebar from "@/components/SideBars/rightSideBar";
 
 export default async function Home() {
   return (
@@ -16,11 +16,9 @@ export default async function Home() {
 
         {/* middle section */}
 
-        <MiddleSection title="Home"/>
-
-        {/* right side */}
-
-        <ClockCalendar/>
+        <MiddleSection title="Inbox"/>
+         
+        <RightSidebar/>
 
       </main>
 

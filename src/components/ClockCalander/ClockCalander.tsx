@@ -27,7 +27,7 @@ export default function ClockCalendar() {
   const fullDate = date.toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" });
 
   return (
-    <div className="flex flex-col gap-6 w-full max-w-sm mx-auto">
+    <div className="flex flex-col gap-6 w-full max-w-sm mx-auto justify-center items-center">
       
       {/* ⏰ CLOCK CARD */}
       <div className="relative overflow-hidden rounded-3xl p-6 text-white shadow-2xl transition-all hover:scale-[1.02] duration-300 group">

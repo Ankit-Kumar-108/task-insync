@@ -8,7 +8,7 @@ export default async function LeftSideBar() {
   const percent = total === 0 ? 0 : (stat.completed / total) * 100;
 
   return (
-    <div className="w-64 min-h-screen p-4 border-r border-white/20 pt-20 flex flex-col justify-start items-center fixed z-40 bg-[#101922]">
+    <div className="hidden w-65 min-h-screen p-4 border-r border-white/20 pt-20 lg:flex flex-col justify-start items-center fixed z-40 bg-[#101922]">
       <div className="flex justify-center items-center flex-col gap-1 mb-6 w-full">
 
         {/* INBOX */}
