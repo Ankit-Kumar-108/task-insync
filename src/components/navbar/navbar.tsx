@@ -9,9 +9,9 @@ export default async function NavBar() {
         <div className="flex justify-center items-center gap-4">
 
           <img src="/lolo.png" alt="Logo Img" className="size-8 rounded-full" />
-          <span className="font-bold text-xl">Task-InSync</span>
+          <span className="font-bold text-lg md:text-xl lg:text-xl">Task-InSync</span>
 
-          <form action="" className="group ml-4">
+          <form action="" className="group ml-4 hidden md:flex">
             <div className="w-64 h-9 rounded-lg bg-slate-100/10 flex justify-start pl-4 items-center group-focus-within:ring-blue-500 group-focus-within:ring-2 gap-2.5">
               <span className="material-symbols-outlined opacity-50 text-[20px]" style={{ fontSize: "20px" }}>search</span>
               <input type="text" placeholder="Search Tasks" className="ring-none outline-none border-none text-[14px]" />
