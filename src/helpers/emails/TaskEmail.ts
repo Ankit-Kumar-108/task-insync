@@ -1,6 +1,6 @@
 "use server";
 import { Resend } from "resend";
-import { auth } from "@/models/OAuth/auth";
+import { auth } from "@/lib/auth";
 import TaskEmail from "@/components/emails/TaskEmail";
 
 // Initialize Resend with your key
@@ -19,10 +19,10 @@ export async function sendTaskNotification(taskTitle: string, deadline: string) 
       from: 'Task-InSync <onboarding@resend.dev>',
       to: [session.user.email], // Can only send to YOURSELF during free tier testing
       subject: `Task Created: ${taskTitle}`,
-      react: TaskEmail({ 
-        userName: session.user.name || "User", 
-        taskTitle, 
-        deadline 
+      react: TaskEmail({
+        userName: session.user.name || "User",
+        taskTitle,
+        deadline
       }),
     });
 

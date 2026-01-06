@@ -1,4 +1,4 @@
-import { auth } from "@/models/OAuth/auth";
+import { auth } from "@/lib/auth";
 import LeftSideBar from "@/components/SideBars/leftSideBar";
 import MiddleSection from "@/components/middleSection/middleSection";
 import NavBar from "@/components/navbar/navbar";
@@ -8,19 +8,19 @@ export default async function Home() {
   const session = await auth()
   return (
     <div className="flex flex-col justify-baseline min-h-screen bg-[#f6f7f8] dark:bg-[#101922] text-white">
-        {/* navbar */}
-        <NavBar/>
-      
+      {/* navbar */}
+      <NavBar />
+
       <main className="flex">
 
         {/* left sidebar here */}
-        <LeftSideBar/>
+        <LeftSideBar />
 
         {/* middle section */}
-        <MiddleSection title="Inbox"/>
-         
-         {/* Right Sidebar */}
-        <RightSidebar/>
+        <MiddleSection title="Inbox" />
+
+        {/* Right Sidebar */}
+        <RightSidebar />
 
       </main>
 

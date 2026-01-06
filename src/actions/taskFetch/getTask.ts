@@ -1,28 +1,24 @@
 "use server"
-import { db } from "@/models/DB/db";
-import { auth } from "@/models/OAuth/auth";
+import { db } from "@/lib/db";
+import { auth } from "@/lib/auth";
 
 
 export default async function GetTask(filter: string) {
-    try {
-        const session = await auth()
-        if(!session?.user?.id || !session?.user?.email) return
+  try {
+    const session = await auth()
+    if (!session?.user?.id) return
 
-        const user = await db.user.findUnique({
-            where: { email: session.user.email },
-        })
+    const now = new Date()
+    const startOfDay = new Date(now.setHours(0, 0, 0, 0))
+    const endOfDay = new Date(now.setHours(23, 59, 59, 999))
 
-        const now = new Date()
-        const startOfDay = new Date(now.setHours(0,0,0,0))
-        const endOfDay = new Date(now.setHours(23,59,59,999))
+    let whereClause: any = {
+      userId: session.user.id
+    }
 
-        let whereClause: any = {
-            userId: user?.id
-        }
-
-       switch (filter.toLowerCase()) {
+    switch (filter.toLowerCase()) {
       case "today":
-        whereClause.deadline = {  
+        whereClause.deadline = {
           gte: startOfDay,
           lte: endOfDay,
         };

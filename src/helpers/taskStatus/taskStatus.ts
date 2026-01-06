@@ -1,6 +1,6 @@
 "use server"
-import { db } from "@/models/DB/db";
-import { auth } from "@/models/OAuth/auth";
+import { db } from "@/lib/db";
+import { auth } from "@/lib/auth";
 
 export async function taskStat() {
     const session = await auth()
@@ -30,7 +30,7 @@ export async function taskStat() {
                 pending: 0,
                 overdue: 0,
                 today: 0,
-                upcoming:0
+                upcoming: 0
             }
         }
 

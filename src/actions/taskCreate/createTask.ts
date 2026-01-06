@@ -1,25 +1,25 @@
 "use server"
-import { auth } from "../../models/OAuth/auth"
-import { db } from "../../models/DB/db"
+import { auth } from "@/lib/auth"
+import { db } from "@/lib/db"
 import { revalidatePath } from "next/cache"
 import { sendTaskNotification } from "@/helpers/emails/TaskEmail"
 
-export default async function CreateTask(formData:FormData) {
+export default async function CreateTask(formData: FormData) {
     // checks if user is logged in or not 
     const session = await auth()
-    if(!session?.user?.id) return
+    if (!session?.user?.id) return
 
     const title = formData.get("title") as string
     const path = formData.get("path") as string
     const deadLineString = formData.get("deadLine") as string
 
     let deadLineDate: Date | null = null
-    if(deadLineString && deadLineString !== "null"){
+    if (deadLineString && deadLineString !== "null") {
         deadLineDate = new Date(deadLineString)
     }
 
     await db.task.create({
-        data:{
+        data: {
             title,
             description: "",
             deadline: deadLineDate,
@@ -29,5 +29,5 @@ export default async function CreateTask(formData:FormData) {
     })
     sendTaskNotification(title, deadLineString)
     revalidatePath(path || "/")
-    return{error: "error creating task"}
+    return { error: "error creating task" }
 }

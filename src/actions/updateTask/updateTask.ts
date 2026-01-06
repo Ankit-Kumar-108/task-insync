@@ -1,6 +1,6 @@
 "use server";
-import { db } from "@/models/DB/db"; // Check your import path!
-import { auth } from "@/models/OAuth/auth";
+import { db } from "@/lib/db";
+import { auth } from "@/lib/auth";
 import { revalidatePath } from "next/cache";
 
 export async function updateTask(formData: FormData) {

@@ -1,4 +1,4 @@
-import { handlers } from "@/models/OAuth/auth";
+import { handlers } from "@/lib/auth";
 
 
-export const {GET, POST} = handlers
+export const { GET, POST } = handlers

@@ -1,4 +1,4 @@
-import { auth, signOut } from "@/models/OAuth/auth"; // Update path if needed
+import { auth, signOut } from "@/lib/auth"; // Update path if needed
 import ClockCalendar from "../ClockCalander/ClockCalander";
 
 export default async function RightSidebar() {
