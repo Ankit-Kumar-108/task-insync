@@ -1,11 +1,12 @@
 "use client";
 
-import { useOptimistic } from "react";
+import { useOptimistic, useState } from "react";
 import calculateTimeLeft from "@/helpers/countdown/countDown";
 import TaskCheckbox from "./TaskCheckbox";
 import EditTaskModal from "../editTask/updateTask";
 import DeleteTask from "../deleteTask/deletetask";
 import AddTaskInput from "../createTask/addTask";
+import FocusModal from "../focus/FocusModal";
 
 // Define Task interface matching Prisma model usage
 interface Task {
@@ -31,6 +32,8 @@ export default function TasksContainer({ initialTasks, title }: TasksContainerPr
         initialTasks,
         (state, newTask: Task) => [newTask, ...state]
     );
+
+    const [focusedTask, setFocusedTask] = useState<Task | null>(null);
 
     const handleOptimisticAdd = (task: Task) => {
         addOptimisticTask(task);
@@ -106,9 +109,19 @@ export default function TasksContainer({ initialTasks, title }: TasksContainerPr
                                 </div>
 
                                 {/* Buttons */}
-                                <div className="mt-3 sm:mt-0 flex items-center justify-end gap-2 opacity-100 sm:opacity-100 sm:group-hover:opacity-100 transition-opacity">
+                                <div className="mt-3 sm:mt-0 flex items-center justify-center gap-2 opacity-100 sm:opacity-100 sm:group-hover:opacity-100 transition-opacity">
                                     <EditTaskModal task={task} />
                                     <DeleteTask title={title} task_Id={task.id} />
+
+                                    <div className="mt-3 sm:mt-0 flex items-center gap-1 transition-opacity">
+                                        <button
+                                            onClick={() => setFocusedTask(task)}
+                                            className="p-1.5 hover:bg-blue-50 dark:hover:bg-blue-500/20 text-blue-500 rounded-md transition-colors"
+                                            title="Focus Mode"
+                                        >
+                                            <span className="material-symbols-outlined text-[20px]">self_improvement</span>
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
                         );
@@ -122,6 +135,15 @@ export default function TasksContainer({ initialTasks, title }: TasksContainerPr
                     </div>
                 )}
             </div>
+
+            {/* Focus Modal */}
+            {focusedTask && (
+                <FocusModal
+                    isOpen={!!focusedTask}
+                    onClose={() => setFocusedTask(null)}
+                    taskTitle={focusedTask.title}
+                />
+            )}
         </>
     );
 }
