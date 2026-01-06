@@ -9,8 +9,8 @@ interface FocusModalProps {
 }
 
 export default function FocusModal({ isOpen, onClose, taskTitle }: FocusModalProps) {
-    // 25 minutes in seconds
-    const INITIAL_TIME = 25 * 60;
+    // 30 minutes in seconds
+    const INITIAL_TIME = 30 * 60;
     const [timeLeft, setTimeLeft] = useState(INITIAL_TIME);
     const [isActive, setIsActive] = useState(false);
 

@@ -4,6 +4,7 @@ import "material-symbols";
 import "./globals.css";
 import { Toaster } from "react-hot-toast";
 import NextTopLoader from 'nextjs-toploader'; // <--- 1. Import TopLoader
+import { ThemeProvider } from "@/components/themeProvider/themeProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -26,7 +27,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
@@ -37,16 +38,21 @@ export default function RootLayout({
           crawlSpeed={200}
           height={3}
           crawl={true}
-          showSpinner={true} 
+          showSpinner={true}
           easing="ease"
           speed={200}
           shadow="0 0 10px #2299DD,0 0 5px #2299DD"
         />
 
-        <Toaster/>
-        
-        {children}
-
+        <Toaster />
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          {children}
+        </ThemeProvider>
         {/* 3. Don't forget this! Your Edit Modal needs this to land on */}
         <div id="modal-root"></div>
 
