@@ -35,7 +35,7 @@ export default async function NavBar() {
 
           <button className="size-10 flex justify-center items-center rounded-full overflow-hidden ring-2 ring-green-500 cursor-pointer">
             {session && session.user ? (
-              <img src={session.user.image || ""} alt="user img" className="w-full h-full object-cover" />
+              <img src={session.user.image || ""} alt="/AltImg.jpg" className="w-full h-full object-cover" />
             ) : (<span className="material-symbols-outlined text-slate-600 dark:text-white">person</span>)}
           </button>
           <div className="p-4 w-20 absolute top-6 -right-4 invisible group-focus-within:visible group-hover:visible duration-200 transition-all"></div>
@@ -43,7 +43,7 @@ export default async function NavBar() {
             {session && session.user ? (
               <>
                 <div className="flex justify-center items-center w-35 h-35 rounded-full overflow-hidden ring-4 ring-slate-100 dark:ring-white/10">
-                  <img src={session.user.image || ""} alt="User Img" className="object-cover w-full h-full" />
+                  <img src={session.user.image || ""} alt="AltImg.jpg" className="object-cover w-full h-full" />
                 </div>
                 <div className="flex flex-col justify-center items-center gap-4">
                   <p className="text-slate-800 dark:text-white text-lg"><b>{session.user.name}</b></p>
@@ -55,12 +55,12 @@ export default async function NavBar() {
                     await signOut()
                   }
                 }>
-                  <button className="w-48 rounded-xl h-10 bg-blue-500 hover:bg-blue-600 text-white font-medium transition-all duration-200 shadow-lg shadow-blue-500/30">
+                  <button className="w-48 rounded-xl h-10 bg-blue-500 hover:bg-blue-600 text-white font-medium transition-all duration-200 shadow-lg shadow-blue-500/30 cursor-pointer text-black dark:text-white">
                     Sign Out
                   </button>
                 </form>
               </>
-            ) : (<span>Hello User</span>)}
+            ) : (<span className="text-slate-600 dark:text-white">Hello User Please Sign In</span>)}
           </div>
         </div>
       </div>
